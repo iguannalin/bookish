@@ -1,12 +1,15 @@
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-body {
+@mixin font {
   background: #fafafa;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+#canvas {
+  @include font;
+
+  .book {
+    transform: rotate(270deg);
+    color: red;
+  }
+
 }

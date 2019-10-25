@@ -32,14 +32,15 @@ function getAndRenderBooks() {
 }
 
 function renderBooks(item) {
-    const element = document.createElement('span');
+    const element = document.createElement('div');
     const titleElement = document.createElement('span');
     const authorElement = document.createElement('span');
     titleElement.innerHTML = item.title;
     authorElement.innerHTML = item.author;
     element.appendChild(titleElement);
     element.appendChild(authorElement);
-    element.style.fontSize = (item.pages / 12).toString() + 'px';
+    element.style.width = (item.pages / 12).toString() + 'px';
+    element.classList += ('book ' + item.size);
     document.getElementById('canvas').appendChild(element);
 }
 
