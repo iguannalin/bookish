@@ -17,23 +17,21 @@ function getAndRenderBooks() {
     request.responseType = 'json';
     request.open('GET', requestURL);
 
-    let bookList = [];
     request.onload = () => {
         request.response['bookItems'].forEach((bookObject) => {
-            bookList.push({
+            const book = {
                 'title': bookObject['title'],
                 'author': bookObject['author'],
                 'pages': bookObject['pages'],
                 'size': getSizeOfBook(bookObject['pages'])
-            });
+            };
+            renderBooks(book);
         });
-        renderBooks(bookList);
     };
     request.send();
-    return bookList;
 }
 
-function createBookElement(item) {
+function renderBooks(item) {
     const element = document.createElement('span');
     const titleElement = document.createElement('span');
     const authorElement = document.createElement('span');
@@ -41,15 +39,8 @@ function createBookElement(item) {
     authorElement.innerHTML = item.author;
     element.appendChild(titleElement);
     element.appendChild(authorElement);
-    element.style.fontSize = (item.pages/12).toString() + 'px';
-    return element;
-}
-
-function renderBooks(books) {
-    console.log('book render', books, typeof books, books.length);
-    books.forEach((book) => {
-        document.getElementById('canvas').appendChild(createBookElement(book));
-    });
+    element.style.fontSize = (item.pages / 12).toString() + 'px';
+    document.getElementById('canvas').appendChild(element);
 }
 
 function init() {
