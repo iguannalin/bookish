@@ -42,6 +42,7 @@ function renderBooks(item) {
     element.style.width = (item.pages / 12).toString() + 'px';
     element.classList += ('book ' + item.size);
     document.getElementById('canvas').appendChild(element);
+    //meow
 }
 
 function init() {
