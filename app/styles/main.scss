@@ -4,12 +4,33 @@
   color: #333;
 }
 
+body {
+  padding: 10px 16px;
+}
+
 #canvas {
   @include font;
+  padding-left: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  //flex-flow: row;
+  //height: 60vh;
+  flex-flow: column;
+  transform: rotate(90deg);
 
   .book {
-    transform: rotate(270deg);
+    display: block;
+    //transform: rotate(270deg);
     color: red;
+    border: 5px solid red;
+    padding: 5px;
+    line-height: 1px;
+    //margin-bottom: 30px;
+    border-radius: 2px;
   }
 
+  .author {
+    color: rgb(16, 16, 16);
+  }
 }
