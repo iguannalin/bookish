@@ -1,5 +1,5 @@
 function norm(x, y1, y2, toString) {
-    const r = (x / y1) % y2;
+    let r = (x / y1) % y2;
     return toString ? (r.toString() + 'px') : r;
 }
 
@@ -24,7 +24,7 @@ function getAndRenderBooks() {
 
     request.onload = () => {
         request.response['bookItems'].forEach((bookObject) => {
-            if (bookObject) {
+            if (bookObject.title) {
                 const book = {
                     'title': bookObject['title'],
                     'author': bookObject['author'],
@@ -50,7 +50,7 @@ function renderBooks(item) {
     authorElement.innerHTML = item.author;
     element.appendChild(titleElement);
     element.appendChild(authorElement);
-    element.style.fontSize = norm(item.pages, 60, canvasHeight, true);
+    element.style.fontSize = norm(item.pages, 25, canvasHeight, true);
     element.classList += ('book ' + item.size);
     canvas.appendChild(element);
 }

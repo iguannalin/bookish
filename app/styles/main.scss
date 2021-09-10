@@ -6,6 +6,8 @@
 
 body {
   padding: 10px 16px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #canvas {
@@ -13,24 +15,33 @@ body {
   padding-left: 15px;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: end;
   //flex-flow: row;
-  //height: 60vh;
+  //width: 40vh;
+  height: 80vw;
   flex-flow: column;
-  transform: rotate(90deg);
-
-  .book {
-    display: block;
-    //transform: rotate(270deg);
-    color: red;
-    border: 5px solid red;
-    padding: 5px;
-    line-height: 1px;
-    //margin-bottom: 30px;
-    border-radius: 2px;
-  }
+  transform: rotate(270deg);
+  position: absolute;
+  top: -200px;
+  left: 500px;
 
   .author {
     color: rgb(16, 16, 16);
+  }
+  //
+  //.book {
+  //  display: block;
+  //  background-color: white;
+  //  //transform: rotate(270deg);
+  //  color: red;
+  //  border: 5px solid red;
+  //  padding: 5px;
+  //  line-height: 1px;
+  //  //margin-bottom: 30px;
+  //  border-radius: 2px;
+  //}
+
+  .book:hover {
+    transform: scale(2);
   }
 }
